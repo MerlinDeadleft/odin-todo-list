@@ -1,0 +1,33 @@
+{
+  "name": "[PROJECT NAME]",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "webpack serve --config webpack.dev.js",
+    "build": "git checkout gh-pages && git merge main --no-edit && webpack --config webpack.prod.js",
+    "deploy": "git add dist -f && git commit -m \"Deployment commit\" && git subtree push --prefix dist origin gh-pages"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+[REPO URL]"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "[REPO URL]/issues"
+  },
+  "homepage": "[REPO URL]#readme",
+  "devDependencies": {
+    "css-loader": "^7.1.5",
+    "html-loader": "^5.1.0",
+    "html-webpack-plugin": "^5.6.8",
+    "style-loader": "^4.0.0",
+    "webpack": "^5.110.1",
+    "webpack-cli": "^7.2.3",
+    "webpack-dev-server": "^6.0.0",
+    "webpack-merge": "^6.0.1"
+  }
+}
