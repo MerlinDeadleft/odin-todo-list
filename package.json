@@ -1,5 +1,5 @@
 {
-  "name": "[PROJECT NAME]",
+  "name": "odin-todo-list",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -10,16 +10,16 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+[REPO URL]"
+    "url": "git+https://github.com/MerlinDeadleft/odin-todo-list"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "type": "module",
   "bugs": {
-    "url": "[REPO URL]/issues"
+    "url": "https://github.com/MerlinDeadleft/odin-todo-list/issues"
   },
-  "homepage": "[REPO URL]#readme",
+  "homepage": "https://github.com/MerlinDeadleft/odin-todo-list#readme",
   "devDependencies": {
     "css-loader": "^7.1.5",
     "html-loader": "^5.1.0",
