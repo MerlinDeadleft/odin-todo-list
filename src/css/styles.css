@@ -1,7 +1,76 @@
 *,
 *::before,
 *::after {
-    margin: 0 auto;
+    margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+
+:root {
+    font-family: sans-serif;
+    font-size: 1.125rem;
+
+    --sidebar-width-expanded: 300px;
+    --sidebar-width-collapsed: calc(2.1em + 15px);
+}
+
+body {
+    height: 100vh;
+    display: grid;
+    grid-template: 75px 1fr / var(--sidebar-width) 1fr;
+
+    --sidebar-width: var(--sidebar-width-expanded);
+}
+
+body:has(#sidebar[collapsed]) {
+    --sidebar-width: var(--sidebar-width-collapsed);
+}
+
+header {
+    grid-column: 1 / -1;
+    align-content: center;
+    border-bottom: 2px solid black;
+}
+
+h1 {
+    padding-left: 10px;
+}
+
+#sidebar {
+    grid-row: 2;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    border-right: 2px solid black;
+    overflow: hidden;
+}
+
+#sidebar-actions {
+    display: flex;
+    justify-content: flex-end;
+    margin: 5px 5px 0 0;
+}
+
+#view-button-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar-button {
+    padding: 10px 0;
+    font-size: 1em;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.sidebar-button img {
+    height: 2.1em;
+    padding: 0 10px 0 5px;
+}
+
+#projects-header {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 5px;
 }
