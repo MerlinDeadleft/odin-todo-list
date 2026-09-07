@@ -14,17 +14,19 @@
         <div id="sidebar-actions">
             <button class="sidebar-button rounded"><img class="auto-mask-icon" id="sidebar-collapse-icon" title="Collapse sidebar" src="assets/icons/arrow-collapse-left.svg" alt="collapse sidebar" height="30px"></button>
         </div>
-        <div id="view-button-container">
-            <button class="sidebar-button view-button"><img class="auto-mask-icon" src="assets/icons/plus-circle.svg" alt="plus-circle" height="30px">Add Todo</button>
-            <button class="sidebar-button view-button"><img class="auto-mask-icon" src="assets/icons/calendar-blank.svg" alt="calendar-blank" height="30px">Due Today</button>
-            <button class="sidebar-button view-button"><img class="auto-mask-icon" src="assets/icons/calendar-month.svg" alt="calendar-month" height="30px">Upcoming</button>
+        <div class="view-button-container">
+            <button class="sidebar-button view-button"><img class="auto-mask-icon" src="assets/icons/plus-circle.svg" alt="" height="30px">Add Todo</button>
+            <button class="sidebar-button view-button"><img class="auto-mask-icon" src="assets/icons/calendar-blank.svg" alt="" height="30px">Due Today</button>
+            <button class="sidebar-button view-button"><img class="auto-mask-icon" src="assets/icons/calendar-month.svg" alt="" height="30px">Upcoming</button>
         </div>
         <div>
             <h2 id="projects-header">
                 Projects
-                <button class="sidebar-button rounded"><img class="auto-mask-icon" title="Add new project" src="assets/icons/plus.svg" alt="plus" height="30px"></button>
+                <button class="sidebar-button rounded"><img class="auto-mask-icon" title="Add new project" src="assets/icons/plus.svg" alt="Add New Project" height="30px"></button>
             </h2>
-            <div id="projects-container"></div>
+            <div id="projects-container" class="view-button-container">
+                <button class="sidebar-button view-button"><img class="auto-mask-icon" src="assets/icons/checkbox-blank.svg" alt="" height="50px">Default Project</button>
+            </div>
         </div>
         <div>
         </div>

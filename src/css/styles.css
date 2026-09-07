@@ -91,7 +91,7 @@ h1 {
     color: var(--color-sidebar-button-selected-text);
 }
 
-#view-button-container {
+.view-button-container {
     display: flex;
     flex-direction: column;
 }
