@@ -9,9 +9,20 @@
 :root {
     font-family: sans-serif;
     font-size: 1.125rem;
+    color: var(--color-text-main);
 
     --sidebar-width-expanded: 300px;
     --sidebar-width-collapsed: calc(2.1em + 15px);
+    --color-sidebar-divider: #5C616A;
+    --color-sidebar-button-hover: #9CBFDE;
+    --color-sidebar-button-active: #3F5FBE;
+    --color-sidebar-button-active-text: #FFFFFF;
+    --color-sidebar-button-selected: #FFFFFF;
+    --color-sidebar-button-selected-text: #13265D;
+
+    --color-background: #CCCCCC;
+    --color-text-main: #1A1C20;
+    --color-text-secondary: #5C616A;
 }
 
 body {
@@ -29,7 +40,9 @@ body:has(#sidebar[collapsed]) {
 header {
     grid-column: 1 / -1;
     align-content: center;
-    border-bottom: 2px solid black;
+    border-bottom: 2px solid var(--color-text-secondary);
+
+    background-color: var(--color-background);
 }
 
 h1 {
@@ -40,9 +53,10 @@ h1 {
     grid-row: 2;
     display: flex;
     flex-direction: column;
-    gap: 50px;
-    border-right: 2px solid black;
+    gap: 25px;
     overflow: hidden;
+
+    background-color: var(--color-background);
 }
 
 #sidebar-actions {
@@ -51,22 +65,65 @@ h1 {
     margin: 5px 5px 0 0;
 }
 
+.sidebar-button {
+    color: var(--color-text-main);
+    background: none;
+    border: none;
+}
+
+.sidebar-button.rounded {
+    border-radius: 5px;
+    padding: 2px;
+}
+
+.sidebar-button:hover,
+.sidebar-button:focus {
+    background-color: var(--color-sidebar-button-hover);
+}
+
+.sidebar-button:active {
+    background-color: var(--color-sidebar-button-active);
+    color: var(--color-sidebar-button-active-text);
+}
+
+.sidebar-button.selected {
+    background-color: var(--color-sidebar-button-selected);
+    color: var(--color-sidebar-button-selected-text);
+}
+
 #view-button-container {
     display: flex;
     flex-direction: column;
 }
 
-.sidebar-button {
+.view-button {
     padding: 10px 0;
     font-size: 1em;
     display: flex;
     justify-content: flex-start;
     align-items: center;
+
+    border-top: var(--sidebar-button-border);
+
+    --sidebar-button-border: 2px solid var(--color-sidebar-divider);
 }
 
-.sidebar-button img {
+.view-button:last-child {
+    border-bottom: var(--sidebar-button-border);
+}
+
+.view-button img {
     height: 2.1em;
     padding: 0 10px 0 5px;
+}
+
+.auto-mask-icon {
+    object-position: -9999px -9999px;
+
+    background-color: currentColor;
+    mask-size: contain;
+    mask-position: center;
+    mask-repeat: no-repeat;
 }
 
 #projects-header {
