@@ -33,7 +33,7 @@ body {
     --sidebar-width: var(--sidebar-width-expanded);
 }
 
-body:has(#sidebar[collapsed]) {
+body:has(#sidebar[data-collapsed]) {
     --sidebar-width: var(--sidebar-width-collapsed);
 }
 
@@ -86,7 +86,7 @@ h1 {
     color: var(--color-sidebar-button-active-text);
 }
 
-.sidebar-button.selected {
+.sidebar-button[data-selected] {
     background-color: var(--color-sidebar-button-selected);
     color: var(--color-sidebar-button-selected-text);
 }
@@ -130,4 +130,8 @@ h1 {
     display: flex;
     justify-content: space-between;
     padding: 0 5px;
+}
+
+#sidebar[data-collapsed] #projects-header h2 {
+    display: none;
 }

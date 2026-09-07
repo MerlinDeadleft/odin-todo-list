@@ -4,4 +4,11 @@ const Priority = {
     HIGH: "High"
 }
 
-export { Priority }
+const ViewTypes = {
+    ADD_TODO: "add-todo",
+    DUE_TODAY: "due-today",
+    UPCOMING: "upcoming",
+    PROJECT: "project"
+}
+
+export { Priority, ViewTypes }
