@@ -65,6 +65,10 @@ h1 {
     margin: 5px 5px 0 0;
 }
 
+#sidebar[data-collapsed] #sidebar-actions {
+    justify-content: center;
+}
+
 .sidebar-button {
     color: var(--color-text-main);
     background: none;
@@ -130,6 +134,10 @@ h1 {
     display: flex;
     justify-content: space-between;
     padding: 0 5px;
+}
+
+#sidebar[data-collapsed] #projects-header {
+    justify-content: center;
 }
 
 #sidebar[data-collapsed] #projects-header h2 {
