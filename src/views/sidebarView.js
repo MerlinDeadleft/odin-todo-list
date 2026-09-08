@@ -9,7 +9,6 @@ class SidebarView {
     sidebarCollapsed;
     addProjectButton;
 
-    viewButtons;
     currentSelectedViewButton = null;
 
     constructor() {
@@ -17,20 +16,25 @@ class SidebarView {
         this.collapseSidebarButton = document.querySelector("#sidebar-collapse-button");
         this.collapseSidebarIcon = document.querySelector("#sidebar-collapse-icon");
         this.sidebarCollapsed = false;
-
-        this.collapseSidebarButton.addEventListener("click", _ => this.handleCollapseSidebarButtonClicked());
-
-        this.viewButtons = [...document.querySelectorAll(".view-button")];
-        this.viewButtons.forEach(viewButton => {
-            viewButton.addEventListener("click", clickEvent => this.handleViewButtonClicked(clickEvent));
-
-            if(this.currentSelectedViewButton === null && viewButton.dataset.viewType === ViewTypes.PROJECT) {
-                viewButton.click();
-            }
-        });
-
         this.addProjectButton = document.querySelector("#add-project-button");
-        this.addProjectButton.addEventListener("click", _ => this.handleAddProjectButtonClicked());
+
+        this.sidebar.addEventListener("click", clickEvent => this.handleSidebarButtonClicked(clickEvent));
+
+        const defaultProjectButton = document.querySelector(".view-button[data-view-type='project']");
+        defaultProjectButton.click();
+    }
+
+    /**
+     * @param {Event} clickEvent 
+     */
+    handleSidebarButtonClicked(clickEvent) {
+        if(clickEvent.target === this.collapseSidebarButton) {
+            this.handleCollapseSidebarButtonClicked();
+        } else if(clickEvent.target === this.addProjectButton) {
+            this.handleAddProjectButtonClicked();
+        } else {
+            this.handleViewButtonClicked(clickEvent);
+        }
     }
 
     handleCollapseSidebarButtonClicked() {
@@ -51,7 +55,7 @@ class SidebarView {
      * @param {Event} clickEvent 
      */
     handleViewButtonClicked(clickEvent) {
-        if(!this.viewButtons.includes(clickEvent.target) || this.currentSelectedViewButton === clickEvent.target) return;
+        if(!clickEvent.target.classList.contains("view-button") || this.currentSelectedViewButton === clickEvent.target) return;
 
         if(this.currentSelectedViewButton !== null) {
             delete this.currentSelectedViewButton.dataset.selected;
@@ -64,7 +68,7 @@ class SidebarView {
         //TODO: Dispatch view changed event
     }
 
-    handleAddProjectButtonClicked(){
+    handleAddProjectButtonClicked() {
         //TODO: Dispatch show add project modal
     }
 }
