@@ -9,3 +9,4 @@ document.querySelectorAll("img.auto-mask-icon")
     });
 
 const sidebarView = new SidebarView();
+sidebarView.selectDefaultView();
