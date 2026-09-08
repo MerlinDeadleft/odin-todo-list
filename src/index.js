@@ -1,5 +1,5 @@
 import "./css/styles.css";
-import { SidebarController } from "./controllers/sidebarController.js";
+import { SidebarView } from "./views/sidebarView.js";
 
 // Convert images to css masks to enable recoloring of svg images
 document.querySelectorAll("img.auto-mask-icon")
@@ -8,4 +8,4 @@ document.querySelectorAll("img.auto-mask-icon")
         img.style.maskImage = `url(${imageSource})`;
     });
 
-const sidebarController = new SidebarController();
+const sidebarView = new SidebarView();

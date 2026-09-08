@@ -2,7 +2,7 @@ import CollapseIcon from "../assets/icons/arrow-collapse-left.svg";
 import ExpandIcon from "../assets/icons/arrow-expand-right.svg";
 import { ViewTypes } from "../utils/enums.js";
 
-class SidebarController {
+class SidebarView {
     sidebar;
     collapseSidebarButton;
     collapseSidebarIcon;
@@ -69,4 +69,4 @@ class SidebarController {
     }
 }
 
-export { SidebarController }
+export { SidebarView }
