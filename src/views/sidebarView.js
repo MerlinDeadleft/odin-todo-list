@@ -20,7 +20,7 @@ class SidebarView {
 
         this.collapseSidebarButton.addEventListener("click", _ => this.handleCollapseSidebarButtonClicked());
 
-        this.viewButtons = document.querySelectorAll(".view-button");
+        this.viewButtons = [...document.querySelectorAll(".view-button")];
         this.viewButtons.forEach(viewButton => {
             viewButton.addEventListener("click", clickEvent => this.handleViewButtonClicked(clickEvent));
 
@@ -51,7 +51,7 @@ class SidebarView {
      * @param {Event} clickEvent 
      */
     handleViewButtonClicked(clickEvent) {
-        if(this.currentSelectedViewButton === clickEvent.target) return;
+        if(!this.viewButtons.includes(clickEvent.target) || this.currentSelectedViewButton === clickEvent.target) return;
 
         if(this.currentSelectedViewButton !== null) {
             delete this.currentSelectedViewButton.dataset.selected;
