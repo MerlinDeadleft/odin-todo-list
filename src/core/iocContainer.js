@@ -3,6 +3,11 @@ class IocContainer {
     #instances = new Map();
     #transientServices = new Map();
 
+    constructor() {
+        this.#singletonServices.set(IocContainer, IocContainer);
+        this.#instances.set(IocContainer, this);
+    }
+
     registerSingleton(type, implementation = type) {
         this.#singletonServices.set(type, implementation);
     }
