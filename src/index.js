@@ -1,5 +1,5 @@
-import "./css/styles.css";
-import { SidebarView } from "./views/sidebarView.js";
+import "src/css/styles.css";
+import { SidebarView } from "src/views/sidebarView.js";
 
 // Convert images to css masks to enable recoloring of svg images
 document.querySelectorAll("img.auto-mask-icon")

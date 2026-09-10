@@ -1,7 +1,7 @@
-import CollapseIcon from "../assets/icons/arrow-collapse-left.svg";
-import ExpandIcon from "../assets/icons/arrow-expand-right.svg";
-import { ViewTypes } from "../utils/enums.js";
-import { EventDispatcher } from "../core/EventDispatcher.js";
+import CollapseIcon from "src/assets/icons/arrow-collapse-left.svg";
+import ExpandIcon from "src/assets/icons/arrow-expand-right.svg";
+import { ViewTypes } from "src/utils/enums.js";
+import { EventDispatcher } from "src/core/EventDispatcher.js";
 
 class SidebarView {
     #sidebar;

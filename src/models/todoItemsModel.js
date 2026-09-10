@@ -1,4 +1,4 @@
-import { Priority } from "../utils/enums.js"
+import { Priority } from "src/utils/enums.js";
 
 class TodoItemsModel {
     /** @type{TodoItem[]} */

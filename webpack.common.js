@@ -8,6 +8,11 @@ export default {
     path: path.resolve(import.meta.dirname, "dist"),
     clean: true,
   },
+  resolve: {
+    alias: {
+      src: path.resolve(import.meta.dirname, "src"),
+    }
+  },
   plugins: [
     new HtmlWebpackPlugin({
       template: "./src/template.html",
