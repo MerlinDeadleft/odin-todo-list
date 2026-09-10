@@ -26,7 +26,7 @@ class SidebarView {
     }
 
     selectDefaultView() {
-        const defaultProjectButton = document.querySelector(".view-button[data-view-type='project']");
+        const defaultProjectButton = document.querySelector(`.view-button[data-view-type='${ViewTypes.PROJECT}']`);
         defaultProjectButton.click();
     }
 
