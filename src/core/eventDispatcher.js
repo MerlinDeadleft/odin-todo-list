@@ -4,7 +4,7 @@ class EventDispatcher {
     addEventListener(callback) {
         this.#handlers.push(callback);
 
-        return () => removeEventListener(callback);
+        return () => this.removeEventListener(callback);
     }
 
     removeEventListener(callback) {
