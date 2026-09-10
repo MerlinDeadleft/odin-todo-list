@@ -1,7 +1,7 @@
 import CollapseIcon from "src/assets/icons/arrow-collapse-left.svg";
 import ExpandIcon from "src/assets/icons/arrow-expand-right.svg";
 import { ViewTypes } from "src/utils/enums.js";
-import { EventDispatcher } from "src/core/EventDispatcher.js";
+import { EventDispatcher } from "src/core/eventDispatcher.js";
 
 class SidebarView {
     #sidebar;
