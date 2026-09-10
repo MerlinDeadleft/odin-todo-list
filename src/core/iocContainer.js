@@ -28,7 +28,7 @@ class IocContainer {
         if(!implementation) {
             throw new Error(`Dependency ${type.name} is not registered!`);
         }
-        
+
         const instance = this.#createInstance(implementation);
         this.#instances.set(type, instance);
 
@@ -51,3 +51,5 @@ class IocContainer {
         return new implementation(...resolvedDependencies);
     }
 }
+
+export { IocContainer }
