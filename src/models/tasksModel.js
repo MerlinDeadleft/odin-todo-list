@@ -5,7 +5,10 @@ class TasksModel {
     tasks = [];
 
     addTask(title, dueDate = null, priority = Priority.NORMAL) {
-        this.todoItems.push(new Task(title, dueDate, priority));
+        const task = new Task(title, dueDate, priority);
+        this.todoItems.push();
+
+        return task.id;
     }
 
     removeTodoItem(todoItemId) {

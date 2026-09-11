@@ -3,7 +3,10 @@ class ProjectsModel {
     projects = [];
 
     addProject(projectTitle = "Default Project") {
+        const project = new Project(projectTitle);
         this.projects.push(new Project(projectTitle));
+
+        return project.id;
     }
 
     removeProject(projectId) {
