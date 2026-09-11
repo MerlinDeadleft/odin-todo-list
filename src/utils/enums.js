@@ -11,4 +11,9 @@ const ViewTypes = {
     PROJECT: "project"
 }
 
-export { Priority, ViewTypes }
+const ButtonTypes = {
+    CancelButton: "cancel",
+    CloseButton: "close"
+}
+
+export { Priority, ViewTypes, ButtonTypes }
