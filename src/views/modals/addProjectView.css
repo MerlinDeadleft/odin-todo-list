@@ -1,0 +1,14 @@
+@import "src/css/modalBase.css";
+
+#AddProjectController-modal form {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    column-gap: 10px;
+    margin-bottom: 20px;
+}
+
+#AddProjectController-modal > div > div {
+    display: flex;
+    justify-content: flex-end;
+    gap: 5px;
+}

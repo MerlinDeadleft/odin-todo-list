@@ -20,6 +20,7 @@ class ModalFactory {
 
         const dialog = document.createElement("dialog");
         dialog.id = "dialog-modal";
+        dialog.classList.add("modal");
 
         if(closedBy) {
             dialog.setAttribute("closedBy", closedBy);

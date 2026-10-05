@@ -1,3 +1,4 @@
+import "./addProjectView.css";
 import { ButtonTypes } from "src/utils/enums.js";
 import { EventDispatcher } from "src/core/eventDispatcher.js";
 
@@ -7,19 +8,29 @@ class AddProjectView {
     render() {
         const container = document.createElement("div");
 
+        const title = document.createElement("h2");
+        title.textContent = "Add New Project";
+        title.classList.add("modal-title");
+        container.appendChild(title);
+
         const form = this.#renderForm();
         container.appendChild(form);
+
+        const buttonContainer = document.createElement("div");
+        container.appendChild(buttonContainer);
 
         const createButton = document.createElement("button");
         createButton.setAttribute("form", form.id);
         createButton.textContent = "Create Project";
-        container.appendChild(createButton);
+        createButton.classList.add("modal-button-confirm");
+        buttonContainer.appendChild(createButton);
 
         const cancelButton = document.createElement("button");
         cancelButton.setAttribute("type", "button");
         cancelButton.textContent = "Cancel";
         cancelButton.dataset.buttonType = ButtonTypes.CancelButton;
-        container.appendChild(cancelButton);
+        cancelButton.classList.add("modal-button-cancel");
+        buttonContainer.appendChild(cancelButton);
 
         this.#bindEvents(form);
 
