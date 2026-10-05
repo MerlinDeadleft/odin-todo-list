@@ -3,9 +3,9 @@ import { ProjectsModel } from "./models/projectsModel.js";
 import { ModalDialogService } from "./services/modalDialogService.js";
 import { ModalFactory } from "./factories/modalFactory.js";
 import { SidebarController } from "./controllers/sidebarController.js";
-import { AddProjectController } from "./controllers/addProjectController.js";
+import { AddProjectController } from "./controllers/modals/addProjectController.js";
 import { SidebarView } from "./views/sidebarView.js";
-import { AddProjectView } from "./views/addProjectView.js";
+import { AddProjectView } from "./views/modals/addProjectView.js";
 
 const container = new IocContainer();
 

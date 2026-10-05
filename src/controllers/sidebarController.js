@@ -2,7 +2,7 @@ import { ControllerBase } from "./controllerBase.js";
 import { ProjectsModel } from "src/models/projectsModel.js";
 import { SidebarView } from "src/views/sidebarView.js";
 import { ModalDialogService } from "src/services/modalDialogService.js";
-import { AddProjectController } from "src/controllers/addProjectController.js";
+import { AddProjectController } from "src/controllers/modals/addProjectController.js";
 
 class SidebarController extends ControllerBase {
     static dependencies = [ProjectsModel, SidebarView, ModalDialogService];

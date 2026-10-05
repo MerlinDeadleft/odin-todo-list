@@ -1,5 +1,5 @@
-import { ControllerBase } from "./controllerBase.js";
-import { AddProjectView } from "src/views/addProjectView.js";
+import { ControllerBase } from "src/controllers/controllerBase.js";
+import { AddProjectView } from "src/views/modals/addProjectView.js";
 import { ProjectsModel } from "src/models/projectsModel.js";
 
 class AddProjectController extends ControllerBase {
