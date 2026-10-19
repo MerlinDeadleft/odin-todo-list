@@ -16,4 +16,8 @@ const ButtonTypes = {
     CloseButton: "close"
 }
 
-export { Priority, ViewTypes, ButtonTypes }
+const MessageType = {
+    ADD_PROJECT: "add-project"
+}
+
+export { Priority, ViewTypes, ButtonTypes, MessageType }
