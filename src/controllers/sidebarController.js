@@ -12,6 +12,9 @@ class SidebarController extends ControllerBase {
     /** @type{ModalDialogService} */
     modalDialogService
 
+    /**
+     * @param {SidebarView} sidebarView
+     */
     constructor(projectsModel, sidebarView, modalDialogService) {
         super();
         this.projectsModel = projectsModel;
