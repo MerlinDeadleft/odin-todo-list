@@ -1,5 +1,6 @@
 import CollapseIcon from "src/assets/icons/arrow-collapse-left.svg";
 import ExpandIcon from "src/assets/icons/arrow-expand-right.svg";
+import CheckboxBlankIcon from "src/assets/icons/checkbox-blank.svg";
 import { ViewTypes } from "src/utils/enums.js";
 import { EventDispatcher } from "src/core/eventDispatcher.js";
 
@@ -28,6 +29,28 @@ class SidebarView {
     selectDefaultView() {
         const defaultProjectButton = document.querySelector(`.view-button[data-view-type='${ViewTypes.PROJECT}']`);
         defaultProjectButton.click();
+    }
+
+    createProjectButtonView(projectTitle) {
+        const projectButtonContainer = document.querySelector("#projects-button-container");
+        
+        const projectButton = document.createElement("button");
+        projectButton.classList.add("sidebar-button", "view-button");
+        projectButton.dataset.viewType = ViewTypes.PROJECT;
+        projectButton.setAttribute("title", projectTitle);
+
+        const icon = document.createElement("img");
+        icon.classList.add("auto-mask-icon");
+        icon.src = CheckboxBlankIcon;
+        icon.height = 50;
+        icon.alt = "";
+        icon.style.maskImage = `url(${CheckboxBlankIcon})`;
+        
+        projectButton.appendChild(icon);
+        projectButton.append(projectTitle);
+        projectButtonContainer.appendChild(projectButton);
+
+        projectButton.click();
     }
 
     /**

@@ -3,35 +3,43 @@ import { ProjectsModel } from "src/models/projectsModel.js";
 import { SidebarView } from "src/views/sidebarView.js";
 import { ModalDialogService } from "src/services/modalDialogService.js";
 import { AddProjectController } from "src/controllers/modals/addProjectController.js";
+import { MessagingService } from "src/services/messagingService.js";
+import { MessageType } from "src/utils/enums.js";
 
 class SidebarController extends ControllerBase {
-    static dependencies = [ProjectsModel, SidebarView, ModalDialogService];
+    static dependencies = [ProjectsModel, SidebarView, ModalDialogService, MessagingService];
 
     /** @type{ProjectsModel} */
-    projectsModel;
+    #projectsModel;
     /** @type{ModalDialogService} */
-    modalDialogService
+    #modalDialogService
+    /** @type{MessagingService} */
+    #messagingService
 
     /**
      * @param {SidebarView} sidebarView
      */
-    constructor(projectsModel, sidebarView, modalDialogService) {
+    constructor(projectsModel, sidebarView, modalDialogService, messagingService) {
         super();
-        this.projectsModel = projectsModel;
+        this.#projectsModel = projectsModel;
         this.view = sidebarView;
-        this.modalDialogService = modalDialogService;
+        this.#modalDialogService = modalDialogService;
+        this.#messagingService = messagingService;
 
-        this.view.onAddProjectButtonClicked.addEventListener(() => this.handleAddProjectButtonClicked());
+        this.#messagingService.susbscribe(MessageType.ADD_PROJECT, projectId => this.#handleProjectAdded(projectId));
+
+        this.view.onAddProjectButtonClicked.addEventListener(() => this.#handleAddProjectButtonClicked());
 
         this.view.selectDefaultView();
     }
 
-    activate() {
-
+    #handleAddProjectButtonClicked() {
+        this.#modalDialogService.showModal(AddProjectController, "any");
     }
 
-    handleAddProjectButtonClicked() {
-        this.modalDialogService.showModal(AddProjectController, "any");
+    #handleProjectAdded(projectId) {
+        const project = this.#projectsModel.getProjectById(projectId);
+        this.view.createProjectButtonView(project.title);
     }
 }
 
