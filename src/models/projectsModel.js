@@ -4,7 +4,7 @@ class ProjectsModel {
 
     addProject(projectTitle = "Default Project") {
         const project = new Project(projectTitle);
-        this.projects.push(new Project(projectTitle));
+        this.projects.push(project);
 
         return project.id;
     }
