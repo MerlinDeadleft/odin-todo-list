@@ -25,27 +25,32 @@ class SidebarController extends ControllerBase {
         this.view = sidebarView;
         this.#modalDialogService = modalDialogService;
         this.#messagingService = messagingService;
-
+    
         for(let project of this.#projectsModel.projects) {
-            this.view.createProjectButtonView(project);
+            this.view.createProjectButtonView(project, false);
         }
 
         this.#messagingService.susbscribe(MessageType.ADD_PROJECT, projectId => this.#handleProjectAdded(projectId));
-
+        
         this.view.onAddProjectButtonClicked.addEventListener(() => this.#handleAddProjectButtonClicked());
+        this.view.onChangeViewClicked.addEventListener((viewType, projectId) => this.#handleChangeViewClicked(viewType, projectId))
     }
 
     activate() {
         this.view.selectDefaultView();
     }
 
+    #handleProjectAdded(projectId) {
+        const project = this.#projectsModel.getProjectById(projectId);
+        this.view.createProjectButtonView(project);
+    }
+
     #handleAddProjectButtonClicked() {
         this.#modalDialogService.showModal(AddProjectController, "any");
     }
 
-    #handleProjectAdded(projectId) {
-        const project = this.#projectsModel.getProjectById(projectId);
-        this.view.createProjectButtonView(project);
+    #handleChangeViewClicked(viewType, projectId) {
+        this.#messagingService.publishMessage(MessageType.CHANGE_VIEW, viewType, projectId);
     }
 }
 

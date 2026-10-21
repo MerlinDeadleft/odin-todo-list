@@ -35,7 +35,7 @@ class SidebarView {
     /**
      * @param {Project} project 
      */
-    createProjectButtonView(project) {
+    createProjectButtonView(project, autoSelect = true) {
         const projectButtonContainer = document.querySelector("#projects-button-container");
         
         const projectButton = document.createElement("button");
@@ -55,7 +55,9 @@ class SidebarView {
         projectButton.append(project.title);
         projectButtonContainer.appendChild(projectButton);
 
-        projectButton.click();
+        if(autoSelect) {
+            projectButton.click();
+        }
     }
 
     /**
