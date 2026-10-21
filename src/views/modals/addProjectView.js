@@ -1,8 +1,9 @@
 import "./addProjectView.css";
 import { ButtonTypes } from "src/utils/enums.js";
 import { EventDispatcher } from "src/core/eventDispatcher.js";
+import { ViewBase } from "src/views/viewBase.js";
 
-class AddProjectView {
+class AddProjectView extends ViewBase {
     onAddProject = new EventDispatcher();
 
     render() {
