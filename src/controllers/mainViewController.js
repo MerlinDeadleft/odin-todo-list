@@ -19,7 +19,7 @@ class MainViewController {
     constructor(messagingService, mainViewFactory) {
         this.#messagingService = messagingService;
         this.#mainViewFactory = mainViewFactory;
-        
+
         this.#mainViewContainer = document.querySelector("main");
 
         this.#messagingService.susbscribe(MessageType.CHANGE_VIEW, (viewType, data) => this.#handleChangeView(viewType, data));
@@ -27,7 +27,7 @@ class MainViewController {
 
     #handleChangeView(viewType, data) {
         if(this.#currentController) {
-            //clean up current controller and view
+            this.#mainViewContainer.replaceChildren();
         }
 
         this.#currentController = this.#mainViewFactory.createMainViewController(viewType, data);
