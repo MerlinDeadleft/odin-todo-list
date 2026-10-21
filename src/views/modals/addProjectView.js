@@ -65,6 +65,7 @@ class AddProjectView extends ViewBase {
     /** @param {SubmitEvent} submitEvent  */
     #handleOnAddProjectFormSubmit(submitEvent, formId) {
         if(submitEvent.target.id !== formId) return;
+        submitEvent.preventDefault();
 
         const formData = new FormData(submitEvent.target);
         const projectName = formData.get("project-name");
