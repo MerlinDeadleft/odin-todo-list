@@ -17,7 +17,8 @@ const ButtonTypes = {
 }
 
 const MessageType = {
-    ADD_PROJECT: "add-project"
+    ADD_PROJECT: "add-project",
+    CHANGE_VIEW: "change-view"
 }
 
 export { Priority, ViewTypes, ButtonTypes, MessageType }
