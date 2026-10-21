@@ -4,6 +4,7 @@ import CheckboxBlankIcon from "src/assets/icons/checkbox-blank.svg";
 import { ViewTypes } from "src/utils/enums.js";
 import { EventDispatcher } from "src/core/eventDispatcher.js";
 import { Project } from "src/models/projectsModel.js";
+import { createMaskedIconImage } from "src/utils/helperFunctions.js";
 
 class SidebarView {
     #sidebar;
@@ -44,12 +45,7 @@ class SidebarView {
         projectButton.dataset.projectId = project.id;
         projectButton.setAttribute("title", project.title);
 
-        const icon = document.createElement("img");
-        icon.classList.add("auto-mask-icon");
-        icon.src = CheckboxBlankIcon;
-        icon.height = 50;
-        icon.alt = "";
-        icon.style.maskImage = `url(${CheckboxBlankIcon})`;
+        const icon = createMaskedIconImage(CheckboxBlankIcon, 50);
         
         projectButton.appendChild(icon);
         projectButton.append(project.title);
