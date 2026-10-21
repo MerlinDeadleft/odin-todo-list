@@ -29,7 +29,9 @@ class SidebarController extends ControllerBase {
         this.#messagingService.susbscribe(MessageType.ADD_PROJECT, projectId => this.#handleProjectAdded(projectId));
 
         this.view.onAddProjectButtonClicked.addEventListener(() => this.#handleAddProjectButtonClicked());
+    }
 
+    activate() {
         this.view.selectDefaultView();
     }
 

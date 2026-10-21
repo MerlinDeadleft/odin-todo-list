@@ -10,3 +10,4 @@ document.querySelectorAll("img.auto-mask-icon")
     });
 
 const sidebarController = container.resolveDependencies(SidebarController);
+sidebarController.activate();
