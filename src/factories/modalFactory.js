@@ -34,7 +34,7 @@ class ModalFactory {
             dialog.id = `${controller.name}-modal`;
         }
 
-        const closeButtons = dialog.querySelectorAll(`button[data-button-type=${ButtonTypes.CancelButton}], button[data-button-type=${ButtonTypes.CloseButton}]`);
+        const closeButtons = dialog.querySelectorAll(`button[data-button-type=${ButtonTypes.CANCEL_BUTTON}], button[data-button-type=${ButtonTypes.CLOSE_BUTTON}]`);
         if(closeButtons.length > 0) {
             closeButtons.forEach(button => {
                 button.setAttribute("command", "close");
@@ -45,7 +45,7 @@ class ModalFactory {
             closeButton.setAttribute("type", "button");
             closeButton.setAttribute("command", "close");
             closeButton.setAttribute("commandfor", dialog.id);
-            closeButton.dataset.buttonType = ButtonTypes.CancelButton;
+            closeButton.dataset.buttonType = ButtonTypes.CANCEL_BUTTON;
             closeButton.textContent = "Close";
 
             dialog.appendChild(closeButton);

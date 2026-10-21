@@ -28,7 +28,7 @@ class AddProjectView {
         const cancelButton = document.createElement("button");
         cancelButton.setAttribute("type", "button");
         cancelButton.textContent = "Cancel";
-        cancelButton.dataset.buttonType = ButtonTypes.CancelButton;
+        cancelButton.dataset.buttonType = ButtonTypes.CANCEL_BUTTON;
         cancelButton.classList.add("modal-button-cancel");
         buttonContainer.appendChild(cancelButton);
 

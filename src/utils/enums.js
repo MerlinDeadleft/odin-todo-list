@@ -12,8 +12,8 @@ const ViewTypes = {
 }
 
 const ButtonTypes = {
-    CancelButton: "cancel",
-    CloseButton: "close"
+    CANCEL_BUTTON: "cancel",
+    CLOSE_BUTTON: "close"
 }
 
 const MessageType = {
