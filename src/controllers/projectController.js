@@ -9,6 +9,7 @@ class ProjectController extends ControllerBase {
     #projectsModel;
 
     constructor(projectView, projectsModel) {
+        super();
         this.view = projectView;
         this.#projectsModel = projectsModel;
     }
