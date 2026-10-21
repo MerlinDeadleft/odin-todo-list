@@ -7,6 +7,7 @@ import { SidebarController } from "./controllers/sidebarController.js";
 import { AddProjectController } from "./controllers/modals/addProjectController.js";
 import { SidebarView } from "./views/sidebarView.js";
 import { AddProjectView } from "./views/modals/addProjectView.js";
+import { MainViewController } from "./controllers/mainViewController.js";
 
 const container = new IocContainer();
 
@@ -17,7 +18,8 @@ container.registerSingleton(MessagingService);
 
 container.registerSingleton(ModalFactory);
 
-container.registerTransient(SidebarController)
+container.registerSingleton(SidebarController)
+container.registerSingleton(MainViewController);
 container.registerTransient(AddProjectController)
 
 container.registerTransient(SidebarView);
