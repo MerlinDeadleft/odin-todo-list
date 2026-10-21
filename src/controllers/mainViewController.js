@@ -1,45 +1,38 @@
+import { ControllerBase } from "./controllerBase.js";
+import { MainViewFactory } from "src/factories/mainViewFactory.js";
 import { MessagingService } from "src/services/messagingService.js";
-import { MessageType, ViewTypes } from "src/utils/enums.js";
+import { MessageType } from "src/utils/enums.js";
 
 class MainViewController {
-    static dependencies = [MessagingService];
+    static dependencies = [MessagingService, MainViewFactory];
 
     /** @type{MessagingService} */
     #messagingService;
+    /** @type{MainViewFactory} */
+    #mainViewFactory;
 
     /** @type{ControllerBase} */
     #currentController;
+    /** @type{HTMLElement} */
+    #mainViewContainer;
 
-    constructor(messagingService) {
+    constructor(messagingService, mainViewFactory) {
         this.#messagingService = messagingService;
+        this.#mainViewFactory = mainViewFactory;
+        
+        this.#mainViewContainer = document.querySelector("main");
 
         this.#messagingService.susbscribe(MessageType.CHANGE_VIEW, (viewType, data) => this.#handleChangeView(viewType, data));
     }
 
-    /**
-     * @param {ViewTypes} viewType
-     */
     #handleChangeView(viewType, data) {
         if(this.#currentController) {
             //clean up current controller and view
         }
 
-        switch (viewType) {
-            case ViewTypes.ADD_TODO:
-                // Show Add Todo View
-                break;
-            case ViewTypes.DUE_TODAY:
-                //Show Due Today View
-                break;
-            case ViewTypes.UPCOMING:
-                //Show Upcoming View
-                break;
-            case ViewTypes.PROJECT:
-                //Show Project View;
-                break;
-            default:
-                break;
-        }
+        this.#currentController = this.#mainViewFactory.createMainViewController(viewType, data);
+        const viewContent = this.#currentController.view.render();
+        this.#mainViewContainer.appendChild(viewContent);
     }
 }
 
