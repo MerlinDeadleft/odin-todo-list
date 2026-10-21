@@ -3,6 +3,7 @@ import ExpandIcon from "src/assets/icons/arrow-expand-right.svg";
 import CheckboxBlankIcon from "src/assets/icons/checkbox-blank.svg";
 import { ViewTypes } from "src/utils/enums.js";
 import { EventDispatcher } from "src/core/eventDispatcher.js";
+import { Project } from "src/models/projectsModel.js";
 
 class SidebarView {
     #sidebar;
@@ -31,13 +32,17 @@ class SidebarView {
         defaultProjectButton.click();
     }
 
-    createProjectButtonView(projectTitle) {
+    /**
+     * @param {Project} project 
+     */
+    createProjectButtonView(project) {
         const projectButtonContainer = document.querySelector("#projects-button-container");
         
         const projectButton = document.createElement("button");
         projectButton.classList.add("sidebar-button", "view-button");
         projectButton.dataset.viewType = ViewTypes.PROJECT;
-        projectButton.setAttribute("title", projectTitle);
+        projectButton.dataset.projectId = project.id;
+        projectButton.setAttribute("title", project.title);
 
         const icon = document.createElement("img");
         icon.classList.add("auto-mask-icon");
@@ -47,7 +52,7 @@ class SidebarView {
         icon.style.maskImage = `url(${CheckboxBlankIcon})`;
         
         projectButton.appendChild(icon);
-        projectButton.append(projectTitle);
+        projectButton.append(project.title);
         projectButtonContainer.appendChild(projectButton);
 
         projectButton.click();
