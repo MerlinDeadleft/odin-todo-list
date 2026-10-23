@@ -5,11 +5,17 @@ import { ViewBase } from "./viewBase.js";
 import { Project } from "src/models/projectsModel.js";
 import { ViewTypes } from "src/utils/enums.js";
 import { createMaskedIconImage } from "src/utils/helperFunctions.js";
+import { EventDispatcher } from "src/core/eventDispatcher.js";
 
 class ProjectView extends ViewBase {
 
     /** @type{Project} */
     #projectModel;
+
+    /** @type{HTMLElement} */
+    #projectSettingsButton;
+
+    onProjectSettingsClicked = new EventDispatcher();
 
     setViewData(project) {
         this.#projectModel = project;
@@ -29,6 +35,8 @@ class ProjectView extends ViewBase {
         const addTodoButton = this.#renderAddTodoButton();
         container.appendChild(addTodoButton);
 
+        this.#bindEvents();
+
         return container;
     }
 
@@ -40,13 +48,13 @@ class ProjectView extends ViewBase {
         title.textContent = this.#projectModel.title;
         header.appendChild(title);
 
-        const settingsButton = document.createElement("button");
-        settingsButton.classList.add("action-button", "rounded");
-        settingsButton.setAttribute("title", "Project Settings");
-        header.appendChild(settingsButton);
+        this.#projectSettingsButton = document.createElement("button");
+        this.#projectSettingsButton.classList.add("action-button", "rounded");
+        this.#projectSettingsButton.setAttribute("title", "Project Settings");
+        header.appendChild(this.#projectSettingsButton);
 
         const settingsIcon = createMaskedIconImage(CogIcon, 25);
-        settingsButton.appendChild(settingsIcon);
+        this.#projectSettingsButton.appendChild(settingsIcon);
 
         return header;
     }
@@ -68,6 +76,14 @@ class ProjectView extends ViewBase {
         addTodoButton.appendChild(addTodoIcon);
 
         return addTodoButton;
+    }
+
+    #bindEvents() {
+        this.#projectSettingsButton.addEventListener("click", () => this.#handleProjectSettingsClicked())
+    }
+
+    #handleProjectSettingsClicked() {
+        this.onProjectSettingsClicked.dispatchEvent(this.#projectModel.id);
     }
 }
 
