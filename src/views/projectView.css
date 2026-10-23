@@ -1,0 +1,26 @@
+#project-view-header {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5em;
+    border-bottom: 2px solid var(--color-divider);
+}
+
+#add-todo-button {
+    position: absolute;
+    bottom: 25px;
+    right: 25px;
+    background: none;
+    border: none;
+    border-radius: 50%;
+    color: #135E4B;
+}
+
+#add-todo-button:hover {
+    color: #0F4A3B;
+    cursor: pointer;
+}
+
+#add-todo-button:active {
+    color: #0B362B;
+    transform: scale(0.94);
+}
