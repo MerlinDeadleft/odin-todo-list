@@ -40,7 +40,7 @@ class SidebarView {
         const projectButtonContainer = document.querySelector("#projects-button-container");
         
         const projectButton = document.createElement("button");
-        projectButton.classList.add("sidebar-button", "view-button");
+        projectButton.classList.add("action-button", "view-button");
         projectButton.dataset.viewType = ViewTypes.PROJECT;
         projectButton.dataset.projectId = project.id;
         projectButton.setAttribute("title", project.title);

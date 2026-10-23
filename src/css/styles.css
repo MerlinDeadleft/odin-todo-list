@@ -13,12 +13,14 @@
 
     --sidebar-width-expanded: 300px;
     --sidebar-width-collapsed: calc(2.1em + 15px);
-    --color-sidebar-divider: #5C616A;
-    --color-sidebar-button-hover: #9CBFDE;
-    --color-sidebar-button-active: #3F5FBE;
-    --color-sidebar-button-active-text: #FFFFFF;
-    --color-sidebar-button-selected: #FFFFFF;
-    --color-sidebar-button-selected-text: #13265D;
+
+    --color-action-button-hover: #9CBFDE;
+    --color-action-button-active: #3F5FBE;
+    --color-action-button-active-text: #FFFFFF;
+    --color-action-button-selected: #FFFFFF;
+    --color-action-button-selected-text: #13265D;
+    
+    --color-divider: #5C616A;
 
     --color-background: #CCCCCC;
     --color-text-main: #1A1C20;
@@ -69,30 +71,30 @@ h1 {
     justify-content: center;
 }
 
-.sidebar-button {
+.action-button {
     color: var(--color-text-main);
     background: none;
     border: none;
 }
 
-.sidebar-button.rounded {
+.action-button.rounded {
     border-radius: 5px;
     padding: 2px;
 }
 
-.sidebar-button:hover,
-.sidebar-button:focus {
-    background-color: var(--color-sidebar-button-hover);
+.action-button:hover,
+.action-button:focus {
+    background-color: var(--color-action-button-hover);
 }
 
-.sidebar-button:active {
-    background-color: var(--color-sidebar-button-active);
-    color: var(--color-sidebar-button-active-text);
+.action-button:active {
+    background-color: var(--color-action-button-active);
+    color: var(--color-action-button-active-text);
 }
 
-.sidebar-button[data-selected] {
-    background-color: var(--color-sidebar-button-selected);
-    color: var(--color-sidebar-button-selected-text);
+.action-button[data-selected] {
+    background-color: var(--color-action-button-selected);
+    color: var(--color-action-button-selected-text);
 }
 
 .view-button-container {
@@ -109,7 +111,7 @@ h1 {
 
     border-top: var(--sidebar-button-border);
 
-    --sidebar-button-border: 2px solid var(--color-sidebar-divider);
+    --sidebar-button-border: 2px solid var(--color-divider);
 }
 
 .view-button:last-child {
